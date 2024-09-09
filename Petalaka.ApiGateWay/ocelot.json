@@ -1,0 +1,55 @@
+{
+  "GlobalConfiguration": {
+    "BaseUrl": "https://localhost:5000"
+  },
+  "Routes": [
+    {
+      //account-service
+      "UpstreamPathTemplate": "/account-service/api/{everything}",
+      "UpstreamHttpMethod": [ "Get", "Post", "Put", "Delete", "Patch"],
+      "DownstreamPathTemplate": "/account-service/api/{everything}",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 8080
+        }
+      ]
+    },
+    {
+      "UpstreamPathTemplate": "/swagger/account/v1/swagger.json",
+      "UpstreamHttpMethod": [ "Get", "Post", "Put", "Delete", "Patch"],
+      "DownstreamPathTemplate": "/swagger/v1/swagger.json",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 8080
+        }
+      ]
+    },
+    //order-service
+    {
+      "UpstreamPathTemplate": "/order-service/api/{everything}",
+      "UpstreamHttpMethod": [ "Get", "Post", "Put", "Delete", "Patch"],
+      "DownstreamPathTemplate": "/order-service/api/{everything}",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 8081
+        }
+      ]
+    },
+    {
+      "UpstreamPathTemplate": "/swagger/order/v1/swagger.json",
+      "UpstreamHttpMethod": [ "Get", "Post", "Put", "Delete", "Patch"],
+      "DownstreamPathTemplate": "/swagger/v1/swagger.json",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 8081
+        }
+      ]
+    }
+  ]
+}
