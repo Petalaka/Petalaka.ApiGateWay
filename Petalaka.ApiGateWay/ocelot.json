@@ -6,7 +6,7 @@
     {
       //account-service
       "UpstreamPathTemplate": "/account-service/api/{everything}",
-      "UpstreamHttpMethod": [ "Get", "Post", "Put", "Delete", "Patch"],
+      "UpstreamHttpMethod": [ "Get", "Post", "Put", "Delete", "Patch" ],
       "DownstreamPathTemplate": "/account-service/api/{everything}",
       "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
@@ -18,7 +18,7 @@
     },
     {
       "UpstreamPathTemplate": "/swagger/account/v1/swagger.json",
-      "UpstreamHttpMethod": [ "Get", "Post", "Put", "Delete", "Patch"],
+      "UpstreamHttpMethod": [ "Get", "Post", "Put", "Delete", "Patch" ],
       "DownstreamPathTemplate": "/swagger/v1/swagger.json",
       "DownstreamHostAndPorts": [
         {
@@ -27,10 +27,11 @@
         }
       ]
     },
+
     //order-service
     {
       "UpstreamPathTemplate": "/order-service/api/{everything}",
-      "UpstreamHttpMethod": [ "Get", "Post", "Put", "Delete", "Patch"],
+      "UpstreamHttpMethod": [ "Get", "Post", "Put", "Delete", "Patch" ],
       "DownstreamPathTemplate": "/order-service/api/{everything}",
       "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
@@ -42,12 +43,26 @@
     },
     {
       "UpstreamPathTemplate": "/swagger/order/v1/swagger.json",
-      "UpstreamHttpMethod": [ "Get", "Post", "Put", "Delete", "Patch"],
+      "UpstreamHttpMethod": [ "Get", "Post", "Put", "Delete", "Patch" ],
       "DownstreamPathTemplate": "/swagger/v1/swagger.json",
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
           "Port": 8081
+        }
+      ]
+    },
+
+    //email-service
+    {
+      "UpstreamPathTemplate": "/email-service/api/{everything}",
+      "UpstreamHttpMethod": [ "Get", "Post", "Put", "Delete", "Patch" ],
+      "DownstreamPathTemplate": "/email-service/api/{everything}",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 8082
         }
       ]
     }

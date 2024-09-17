@@ -1,0 +1,8 @@
+version: '3.4'
+
+services:
+  petalaka.apigateway:
+    image: ${DOCKER_REGISTRY-}petalakaapigateway
+    build:
+      context: .
+      dockerfile: Petalaka.ApiGateWay/Dockerfile
