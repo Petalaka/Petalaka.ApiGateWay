@@ -4,7 +4,7 @@
     <ProjectVersion>2.1</ProjectVersion>
     <DockerTargetOS>Linux</DockerTargetOS>
     <DockerPublishLocally>False</DockerPublishLocally>
-    <ProjectGuid>08fab148-aa51-4400-ada1-50d9421de56e</ProjectGuid>
+    <ProjectGuid>517ea41f-db4c-4a34-9a47-65179f6a21b3</ProjectGuid>
     <DockerLaunchAction>LaunchBrowser</DockerLaunchAction>
     <DockerServiceUrl>{Scheme}://localhost:{ServicePort}/swagger</DockerServiceUrl>
     <DockerServiceName>petalaka.apigateway</DockerServiceName>
