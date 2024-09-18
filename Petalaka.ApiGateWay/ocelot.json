@@ -1,6 +1,6 @@
 {
   "GlobalConfiguration": {
-    "BaseUrl": "https://localhost:5000"
+    "BaseUrl": "http://ocelot-gateway:80"
   },
   "Routes": [
     {
@@ -8,10 +8,10 @@
       "UpstreamPathTemplate": "/account-service/api/{everything}",
       "UpstreamHttpMethod": [ "Get", "Post", "Put", "Delete", "Patch" ],
       "DownstreamPathTemplate": "/account-service/api/{everything}",
-      "DownstreamScheme": "https",
+      "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "localhost",
+          "Host": "host.docker.internal",
           "Port": 8080
         }
       ]
@@ -20,9 +20,10 @@
       "UpstreamPathTemplate": "/swagger/account/v1/swagger.json",
       "UpstreamHttpMethod": [ "Get", "Post", "Put", "Delete", "Patch" ],
       "DownstreamPathTemplate": "/swagger/v1/swagger.json",
+      "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "localhost",
+          "Host": "host.docker.internal",
           "Port": 8080
         }
       ]
@@ -33,10 +34,10 @@
       "UpstreamPathTemplate": "/order-service/api/{everything}",
       "UpstreamHttpMethod": [ "Get", "Post", "Put", "Delete", "Patch" ],
       "DownstreamPathTemplate": "/order-service/api/{everything}",
-      "DownstreamScheme": "https",
+      "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "localhost",
+          "Host": "host.docker.internal",
           "Port": 8081
         }
       ]
@@ -45,9 +46,10 @@
       "UpstreamPathTemplate": "/swagger/order/v1/swagger.json",
       "UpstreamHttpMethod": [ "Get", "Post", "Put", "Delete", "Patch" ],
       "DownstreamPathTemplate": "/swagger/v1/swagger.json",
+      "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "localhost",
+          "Host": "host.docker.internal",
           "Port": 8081
         }
       ]
@@ -58,10 +60,10 @@
       "UpstreamPathTemplate": "/email-service/api/{everything}",
       "UpstreamHttpMethod": [ "Get", "Post", "Put", "Delete", "Patch" ],
       "DownstreamPathTemplate": "/email-service/api/{everything}",
-      "DownstreamScheme": "https",
+      "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "localhost",
+          "Host": "host.docker.internal",
           "Port": 8082
         }
       ]
