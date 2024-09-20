@@ -12,5 +12,15 @@ public static class ConfigureService
         {
             c.SwaggerDoc("v1", new OpenApiInfo() { Title = "API Gateway", Version = "v1" });
         });
+        services.AddCors(options =>
+        {
+            options.AddPolicy("AllowAll",
+                builder =>
+                {
+                    builder.AllowAnyHeader()
+                    .AllowAnyMethod()
+                    .AllowAnyOrigin();
+                });
+        });
     }
 }

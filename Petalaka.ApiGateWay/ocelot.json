@@ -4,10 +4,10 @@
   },
   "Routes": [
     {
-      //account-service
-      "UpstreamPathTemplate": "/account-service/api/{everything}",
+      //Register downstream host and port
+      "UpstreamPathTemplate": "/api/{everything}",
       "UpstreamHttpMethod": [ "Get", "Post", "Put", "Delete", "Patch" ],
-      "DownstreamPathTemplate": "/account-service/api/{everything}",
+      "DownstreamPathTemplate": "/api/{everything}",
       "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
@@ -16,6 +16,8 @@
         }
       ]
     },
+
+    //Register downstream swagger ui
     {
       "UpstreamPathTemplate": "/swagger/account/v1/swagger.json",
       "UpstreamHttpMethod": [ "Get", "Post", "Put", "Delete", "Patch" ],
@@ -29,19 +31,6 @@
       ]
     },
 
-    //order-service
-    {
-      "UpstreamPathTemplate": "/order-service/api/{everything}",
-      "UpstreamHttpMethod": [ "Get", "Post", "Put", "Delete", "Patch" ],
-      "DownstreamPathTemplate": "/order-service/api/{everything}",
-      "DownstreamScheme": "http",
-      "DownstreamHostAndPorts": [
-        {
-          "Host": "host.docker.internal",
-          "Port": 8081
-        }
-      ]
-    },
     {
       "UpstreamPathTemplate": "/swagger/order/v1/swagger.json",
       "UpstreamHttpMethod": [ "Get", "Post", "Put", "Delete", "Patch" ],
@@ -53,20 +42,7 @@
           "Port": 8081
         }
       ]
-    },
-
-    //email-service
-    {
-      "UpstreamPathTemplate": "/email-service/api/{everything}",
-      "UpstreamHttpMethod": [ "Get", "Post", "Put", "Delete", "Patch" ],
-      "DownstreamPathTemplate": "/email-service/api/{everything}",
-      "DownstreamScheme": "http",
-      "DownstreamHostAndPorts": [
-        {
-          "Host": "host.docker.internal",
-          "Port": 8082
-        }
-      ]
     }
+
   ]
 }
