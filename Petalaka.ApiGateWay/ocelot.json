@@ -25,7 +25,7 @@
       "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
-          "Host": "api-account-service.nodfeather.win",
+          "Host": "api-account-staging.nodfeather.win",
           "Port": 443
         }
       ]
