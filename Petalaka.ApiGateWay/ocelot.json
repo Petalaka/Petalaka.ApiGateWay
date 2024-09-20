@@ -8,11 +8,11 @@
       "UpstreamPathTemplate": "/account-service/api/{everything}",
       "UpstreamHttpMethod": [ "Get", "Post", "Put", "Delete", "Patch" ],
       "DownstreamPathTemplate": "/account-service/api/{everything}",
-      "DownstreamScheme": "http",
+      "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
-          "Host": "host.docker.internal",
-          "Port": 8080
+          "Host": "api-account-service.nodfeather.win",
+          "Port": 443
         }
       ]
     },
@@ -20,11 +20,11 @@
       "UpstreamPathTemplate": "/swagger/account/v1/swagger.json",
       "UpstreamHttpMethod": [ "Get", "Post", "Put", "Delete", "Patch" ],
       "DownstreamPathTemplate": "/swagger/v1/swagger.json",
-      "DownstreamScheme": "http",
+      "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
-          "Host": "host.docker.internal",
-          "Port": 8080
+          "Host": "api-account-service.nodfeather.win",
+          "Port": 443
         }
       ]
     },
