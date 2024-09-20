@@ -12,6 +12,7 @@ builder.Configuration.AddJsonFile("ocelot.json", optional: false, reloadOnChange
 
 builder.Services.AddOcelot(builder.Configuration);
 var app = builder.Build();
+app.UseCors("AllowAll");
 app.UseRouting();
 
 // Configure the HTTP request pipeline.
