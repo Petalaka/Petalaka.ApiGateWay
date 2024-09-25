@@ -8,11 +8,11 @@
       "UpstreamPathTemplate": "/api/{everything}",
       "UpstreamHttpMethod": [ "Get", "Post", "Put", "Delete", "Patch" ],
       "DownstreamPathTemplate": "/api/{everything}",
-      "DownstreamScheme": "https",
+      "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "api-account-staging.nodfeather.win",
-          "Port": 443
+          "Host": "homehost",
+          "Port": 8080
         }
       ]
     },
@@ -25,8 +25,8 @@
       "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
-          "Host": "api-account-staging.nodfeather.win",
-          "Port": 443
+          "Host": "homehost",
+          "Port": 8080
         }
       ]
     },
@@ -38,7 +38,7 @@
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "host.docker.internal",
+          "Host": "homehost",
           "Port": 8081
         }
       ]
