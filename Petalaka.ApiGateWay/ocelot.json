@@ -19,9 +19,9 @@
 
     {
       //Register downstream host and port
-      "UpstreamPathTemplate": "/api/signin-google",
+      "UpstreamPathTemplate": "/signin-google",
       "UpstreamHttpMethod": [ "Get" ],
-      "DownstreamPathTemplate": "/api/signin-google",
+      "DownstreamPathTemplate": "/signin-google",
       "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
