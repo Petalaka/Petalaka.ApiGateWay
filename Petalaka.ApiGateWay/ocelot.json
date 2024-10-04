@@ -16,19 +16,6 @@
         }
       ]
     },
-    {
-      //Register downstream host and port
-      "UpstreamPathTemplate": "/{everything}",
-      "UpstreamHttpMethod": [ "Get" ],
-      "DownstreamPathTemplate": "/{everything}",
-      "DownstreamScheme": "https",
-      "DownstreamHostAndPorts": [
-        {
-          "Host": "api-account-staging.nodfeather.win",
-          "Port": 443
-        }
-      ]
-    },
     //Register downstream swagger ui
     {
       "UpstreamPathTemplate": "/swagger/account/v1/swagger.json",
