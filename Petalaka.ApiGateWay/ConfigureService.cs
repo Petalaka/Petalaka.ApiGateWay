@@ -22,6 +22,14 @@ public static class ConfigureService
                     .AllowAnyOrigin();
                 });
         });
+        services.AddDistributedMemoryCache();
+
+        services.AddSession(options =>
+        {
+            options.IdleTimeout = TimeSpan.FromHours(1); // Thời gian hết hạn của session
+            options.Cookie.HttpOnly = true; // Không cho phép JavaScript truy cập cookie
+            options.Cookie.IsEssential = true; // Để sử dụng session cần thiết
+        });
         services.AddAuthentication()
             .AddCookie(options =>
             {
