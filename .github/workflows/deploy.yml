@@ -50,11 +50,13 @@ jobs:
             echo "DOCKER_REGISTRY=${{ vars.CONTAINER_REGISTRY }}/${{ vars.IMAGE_NAME }}:${{ vars.VERSION_PRODUCTION }}" >> $GITHUB_ENV
             echo "CONTAINER_NAME=${{ vars.CONTAINER_NAME_PRODUCTION }}" >> $GITHUB_ENV
             echo "CONTAINER_PORT=${{ vars.CONTAINER_PORT_PRODUCTION }}" >> $GITHUB_ENV
+            echo "ENV_PATH=${{ secrets.ENV_FILE_PATH }}/${{ vars.ENV_FILENAME_PRODUCTION }}" >> $GITHUB_ENV
 
           elif [[ "${{ github.ref }}" == "refs/heads/staging" ]]; then
             echo "DOCKER_REGISTRY=${{ vars.CONTAINER_REGISTRY }}/${{ vars.IMAGE_NAME }}:${{ vars.VERSION_STAGING }}" >> $GITHUB_ENV
             echo "CONTAINER_NAME=${{ vars.CONTAINER_NAME_STAGING }}" >> $GITHUB_ENV
             echo "CONTAINER_PORT=${{ vars.CONTAINER_PORT_STAGING }}" >> $GITHUB_ENV
+            echo "ENV_PATH=${{ secrets.ENV_FILE_PATH }}/${{ vars.ENV_FILENAME_STAGING }}" >> $GITHUB_ENV
           fi    
       - name: Deploy package to VPS
         uses: appleboy/ssh-action@v1.0.0
@@ -63,9 +65,16 @@ jobs:
           username: ${{ secrets.SERVER_USERNAME }}
           key: ${{ secrets.SERVER_PRIVATE_KEY }}
           script: |
+            if [[ "${{ github.ref }}" == "refs/heads/main" ]]; then
+                echo "${{ secrets.ENV_FILE_PRODUCTION }}" > ${{ env.ENV_PATH }}
+            elif [[ "${{ github.ref }}" == "refs/heads/staging" ]]; then
+                echo "${{ secrets.ENV_FILE_STAGING }}" > ${{ env.ENV_PATH }}
+            fi
+
             echo ${{ secrets.GH_TOKEN }} | docker login ghcr.io -u ${{ secrets.GH_USERNAME }} --password-stdin
             docker stop ${{ env.CONTAINER_NAME }} || true
             docker rm ${{ env.CONTAINER_NAME }}  || true
             docker rmi ${{ env.DOCKER_REGISTRY }}  || true
             docker pull ${{ env.DOCKER_REGISTRY }}
-            docker run -d --name ${{ env.CONTAINER_NAME }} --restart unless-stopped -p ${{ env.CONTAINER_PORT }}:${{ vars.PORT }} ${{ env.DOCKER_REGISTRY }}
+            docker run -d --name ${{ env.CONTAINER_NAME }} --restart unless-stopped --env-file ${{ env.ENV_PATH }} -p ${{ env.CONTAINER_PORT }}:${{ vars.PORT }} ${{ env.DOCKER_REGISTRY }}
+            rm ${{ env.ENV_PATH }}

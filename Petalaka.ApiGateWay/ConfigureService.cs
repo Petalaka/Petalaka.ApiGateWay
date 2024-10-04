@@ -1,4 +1,7 @@
-﻿using Microsoft.OpenApi.Models;
+﻿using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.OpenApi.Models;
+using System.Security.Claims;
 
 namespace Petalaka.ApiGateWay;
 
@@ -37,6 +40,16 @@ public static class ConfigureService
                 options.Cookie.HttpOnly = true;
                 options.Cookie.SecurePolicy = CookieSecurePolicy.Always; // Use Always if running on HTTPS
                 options.Cookie.SameSite = SameSiteMode.None; // Adjust based on your needs
-            });
+            })
+          .AddGoogle(options =>
+          {
+              options.SignInScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+              options.ClientId = configuration.GetSection("GoogleSettings:ClientId").Value;
+              options.ClientSecret = configuration.GetSection("GoogleSettings:ClientSecret").Value;
+              options.Scope.Add("email");
+              options.Scope.Add("profile");
+              options.ClaimActions.MapJsonKey(ClaimTypes.NameIdentifier, "sub");
+              options.ClaimActions.MapJsonKey(ClaimTypes.Email, "email");
+          });
     }
 }
