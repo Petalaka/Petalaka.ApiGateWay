@@ -50,6 +50,6 @@ public static class ConfigureService
               options.Scope.Add("profile");
               options.ClaimActions.MapJsonKey(ClaimTypes.NameIdentifier, "sub");
               options.ClaimActions.MapJsonKey(ClaimTypes.Email, "email");
-          });
+          }); 
     }
 }
