@@ -17,6 +17,19 @@
       ]
     },
 
+    {
+      //Register downstream host and port
+      "UpstreamPathTemplate": "/api/signin-google",
+      "UpstreamHttpMethod": [ "Get" ],
+      "DownstreamPathTemplate": "/api/signin-google",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "api-account-staging.nodfeather.win",
+          "Port": 443
+        }
+      ]
+    },
     //Register downstream swagger ui
     {
       "UpstreamPathTemplate": "/swagger/account/v1/swagger.json",
@@ -45,4 +58,4 @@
     }
 
   ]
-}
+} 
