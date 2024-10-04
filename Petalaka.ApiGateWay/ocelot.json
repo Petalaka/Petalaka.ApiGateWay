@@ -18,9 +18,9 @@
     },
     {
       //Register downstream host and port
-      "UpstreamPathTemplate": "/api/authentication/v1/authentication/google/callback",
+      "UpstreamPathTemplate": "/{everything}",
       "UpstreamHttpMethod": [ "Get" ],
-      "DownstreamPathTemplate": "/api/authentication/v1/authentication/google/callback",
+      "DownstreamPathTemplate": "/{everything}",
       "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
