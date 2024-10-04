@@ -39,7 +39,13 @@
           "Host": "api-account-staging.nodfeather.win",
           "Port": 443
         }
-      ]
+      ],
+      "AddHeadersToRequest": {
+        "Cookie": "{cookie}" // Forward cookies to the downstream service
+      },
+      "AddClaimsToRequest": {
+        "Cookie": "{cookie}"
+      }
     },
     //Register downstream swagger ui
     {
