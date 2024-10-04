@@ -1,7 +1,10 @@
 ﻿using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using System.Security.Claims;
+using System.Text;
 
 namespace Petalaka.ApiGateWay;
 
@@ -36,16 +39,36 @@ public static class ConfigureService
         });
         services.AddAuthentication(options =>
         {
-            options.DefaultAuthenticateScheme = CookieAuthenticationDefaults.AuthenticationScheme;
-            options.DefaultChallengeScheme = CookieAuthenticationDefaults.AuthenticationScheme;
-        })
-            .AddCookie(options =>
+            options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+            options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+            options.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
+            /*options.DefaultScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+            options.DefaultChallengeScheme = GoogleDefaults.AuthenticationScheme;*/
+
+        }).AddJwtBearer(options =>
+        {
+            options.TokenValidationParameters = new TokenValidationParameters
             {
-                // Optional: Configure cookie settings if needed
-                options.Cookie.HttpOnly = true;
-                options.Cookie.SecurePolicy = CookieSecurePolicy.Always; // Use Always if running on HTTPS
-                options.Cookie.SameSite = SameSiteMode.None; // Adjust based on your needs
-            })
+                ValidateIssuer = true,
+                ValidateAudience = true,
+                ValidateLifetime = true,
+                ValidateIssuerSigningKey = true,
+                ValidIssuer = configuration.GetSection("JwtSettings:Issuer").Value,
+                ValidAudience = configuration.GetSection("JwtSettings:Audience").Value,
+                IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(configuration.GetSection("JwtSettings:Key").Value)),
+                ClockSkew = TimeSpan.Zero // No tolerance for token expiration
+            };
+            /*
+            options.Events = new CustomJwtBearerEvents();
+        */
+        }).AddCookie(options =>
+        {
+            // Optional: Configure cookie settings if needed
+            options.Cookie.HttpOnly = true;
+            options.Cookie.SecurePolicy = CookieSecurePolicy.Always; // Use Always if running on HTTPS
+            options.Cookie.SameSite = SameSiteMode.Lax; // Adjust based on your needs
+            options.Cookie.Name = "Petalaka.Cookie";
+        })
           .AddGoogle(options =>
           {
               options.SignInScheme = CookieAuthenticationDefaults.AuthenticationScheme;
@@ -55,6 +78,6 @@ public static class ConfigureService
               options.Scope.Add("profile");
               options.ClaimActions.MapJsonKey(ClaimTypes.NameIdentifier, "sub");
               options.ClaimActions.MapJsonKey(ClaimTypes.Email, "email");
-          }); 
+          });
     }
 }
