@@ -32,6 +32,8 @@ app.UseSwaggerUI(c =>
     c.SwaggerEndpoint("/swagger/account/v1/swagger.json", "Account Service");
 
 });
+app.UseAuthentication();
+app.UseAuthorization();
 app.UseHttpsRedirection();
 await app.UseOcelot();
 app.Run();
