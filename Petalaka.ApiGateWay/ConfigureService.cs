@@ -22,5 +22,13 @@ public static class ConfigureService
                     .AllowAnyOrigin();
                 });
         });
+        services.AddAuthentication()
+            .AddCookie(options =>
+            {
+                // Optional: Configure cookie settings if needed
+                options.Cookie.HttpOnly = true;
+                options.Cookie.SecurePolicy = CookieSecurePolicy.Always; // Use Always if running on HTTPS
+                options.Cookie.SameSite = SameSiteMode.None; // Adjust based on your needs
+            });
     }
 }

@@ -16,6 +16,7 @@ builder.Services.AddConfigureService(builder.Configuration);
 var app = builder.Build();
 app.UseCors("AllowAll");
 app.UseRouting();
+app.UseSession();
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
