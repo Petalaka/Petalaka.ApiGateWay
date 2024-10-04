@@ -16,20 +16,6 @@
         }
       ]
     },
-
-    {
-      //Register downstream host and port
-      "UpstreamPathTemplate": "/api/authentication/v1/authentication/google/callback",
-      "UpstreamHttpMethod": [ "Get" ],
-      "DownstreamPathTemplate": "/signin-google",
-      "DownstreamScheme": "https",
-      "DownstreamHostAndPorts": [
-        {
-          "Host": "api-account-staging.nodfeather.win",
-          "Port": 443
-        }
-      ]
-    },
     {
       //Register downstream host and port
       "UpstreamPathTemplate": "/api/authentication/v1/authentication/google/callback",
