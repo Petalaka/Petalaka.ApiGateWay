@@ -33,7 +33,11 @@ public static class ConfigureService
             options.Cookie.HttpOnly = true; // Không cho phép JavaScript truy cập cookie
             options.Cookie.IsEssential = true; // Để sử dụng session cần thiết
         });
-        services.AddAuthentication()
+        services.AddAuthentication(options =>
+        {
+            options.DefaultAuthenticateScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+            options.DefaultChallengeScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+        })
             .AddCookie(options =>
             {
                 // Optional: Configure cookie settings if needed
