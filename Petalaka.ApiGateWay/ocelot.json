@@ -5,9 +5,9 @@
   "Routes": [
     {
       //Register downstream host and port
-      "UpstreamPathTemplate": "/api/{everything}",
+      "UpstreamPathTemplate": "/api/account-service/{everything}",
       "UpstreamHttpMethod": [ "Get", "Post", "Put", "Delete", "Patch" ],
-      "DownstreamPathTemplate": "/api/{everything}",
+      "DownstreamPathTemplate": "/api/account-service/{everything}",
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
@@ -16,10 +16,22 @@
         }
       ]
     },
+    {
+      "UpstreamPathTemplate": "/api/pet-store-service/{everything}",
+      "UpstreamHttpMethod": [ "Get", "Post", "Put", "Delete", "Patch" ],
+      "DownstreamPathTemplate": "/api/pet-store-service/{everything}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "homehost",
+          "Port": 8083
+        }
+      ]
+    },
 
     //Register downstream swagger ui
     {
-      "UpstreamPathTemplate": "/swagger/account/v1/swagger.json",
+      "UpstreamPathTemplate": "/swagger/account-service/v1/swagger.json",
       "UpstreamHttpMethod": [ "Get", "Post", "Put", "Delete", "Patch" ],
       "DownstreamPathTemplate": "/swagger/v1/swagger.json",
       "DownstreamScheme": "http",
@@ -45,7 +57,7 @@
     },
 
     {
-      "UpstreamPathTemplate": "/swagger/pet-store/v1/swagger.json",
+      "UpstreamPathTemplate": "/swagger/pet-store-service/v1/swagger.json",
       "UpstreamHttpMethod": [ "Get", "Post", "Put", "Delete", "Patch" ],
       "DownstreamPathTemplate": "/swagger/v1/swagger.json",
       "DownstreamScheme": "http",

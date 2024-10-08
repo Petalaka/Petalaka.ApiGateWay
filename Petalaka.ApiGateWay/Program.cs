@@ -28,8 +28,8 @@ app.UseSwaggerUI(c =>
     c.SwaggerEndpoint("/swagger/v1/swagger.json", "API Gateway v1");
     
     c.SwaggerEndpoint("/swagger/order/v1/swagger.json", "Order Service");
-    c.SwaggerEndpoint("/swagger/account/v1/swagger.json", "Account Service");
-    c.SwaggerEndpoint("/swagger/pet-store/v1/swagger.json", "PetStore Service");
+    c.SwaggerEndpoint("/swagger/account-service/v1/swagger.json", "Account Service");
+    c.SwaggerEndpoint("/swagger/pet-store-service/v1/swagger.json", "PetStore Service");
 });
 app.UseHttpsRedirection();
 await app.UseOcelot();
