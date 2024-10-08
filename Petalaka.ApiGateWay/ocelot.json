@@ -12,7 +12,7 @@
       "DownstreamHostAndPorts": [
         {
           "Host": "api-account-staging.nodfeather.win",
-          "Port": 8080
+          "Port": 443
         }
       ]
     },
@@ -24,7 +24,7 @@
       "DownstreamHostAndPorts": [
         {
           "Host": "api-petstore-staging.nodfeather.win",
-          "Port": 8083
+          "Port": 443
         }
       ]
     },
@@ -37,7 +37,7 @@
       "DownstreamHostAndPorts": [
         {
           "Host": "api-account-staging.nodfeather.win",
-          "Port": 8080
+          "Port": 443
         }
       ]
     },
@@ -63,7 +63,7 @@
       "DownstreamHostAndPorts": [
         {
           "Host": "api-petstore-staging.nodfeather.win",
-          "Port": 8083
+          "Port": 443
         }
       ]
     }
