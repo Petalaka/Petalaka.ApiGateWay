@@ -29,7 +29,7 @@ app.UseSwaggerUI(c =>
     
     c.SwaggerEndpoint("/swagger/order/v1/swagger.json", "Order Service");
     c.SwaggerEndpoint("/swagger/account/v1/swagger.json", "Account Service");
-
+    c.SwaggerEndpoint("/swagger/pet-store/v1/swagger.json", "PetStore Service");
 });
 app.UseHttpsRedirection();
 await app.UseOcelot();
