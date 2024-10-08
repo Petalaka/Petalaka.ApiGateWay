@@ -8,10 +8,10 @@
       "UpstreamPathTemplate": "/api/account-service/{everything}",
       "UpstreamHttpMethod": [ "Get", "Post", "Put", "Delete", "Patch" ],
       "DownstreamPathTemplate": "/api/account-service/{everything}",
-      "DownstreamScheme": "http",
+      "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
-          "Host": "homehost",
+          "Host": "api-account-staging.nodfeather.win",
           "Port": 8080
         }
       ]
@@ -20,54 +20,23 @@
       "UpstreamPathTemplate": "/api/pet-store-service/{everything}",
       "UpstreamHttpMethod": [ "Get", "Post", "Put", "Delete", "Patch" ],
       "DownstreamPathTemplate": "/api/pet-store-service/{everything}",
-      "DownstreamScheme": "http",
+      "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
-          "Host": "homehost",
+          "Host": "api-petstore-staging.nodfeather.win",
           "Port": 8083
         }
       ]
-    },
-    {
-      //Register downstream host and port
-      "UpstreamPathTemplate": "/{everything}",
-      "UpstreamHttpMethod": [ "Get" ],
-      "DownstreamPathTemplate": "/{everything}",
-      "DownstreamScheme": "https",
-      "DownstreamHostAndPorts": [
-        {
-          "Host": "api-account-staging.nodfeather.win",
-          "Port": 443
-        }
-      ]
-    },
-    {
-      "UpstreamPathTemplate": "/signin-google",
-      "UpstreamHttpMethod": [ "Get" ],
-      "DownstreamPathTemplate": "/api/authentication/v1/authentication/google/callback",
-      "DownstreamScheme": "https",
-      "DownstreamHostAndPorts": [
-        {
-          "Host": "api-account-staging.nodfeather.win",
-          "Port": 443
-        }
-      ],
-      "AddHeadersToRequest": {
-        "Cookie": "{cookie}" // Forward cookies to the downstream service
-      },
-      "AddClaimsToRequest": {
-        "Cookie": "{cookie}"
-      }
     },
     //Register downstream swagger ui
     {
       "UpstreamPathTemplate": "/swagger/account-service/v1/swagger.json",
       "UpstreamHttpMethod": [ "Get", "Post", "Put", "Delete", "Patch" ],
       "DownstreamPathTemplate": "/swagger/v1/swagger.json",
-      "DownstreamScheme": "http",
+      "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
-          "Host": "homehost",
+          "Host": "api-account-staging.nodfeather.win",
           "Port": 8080
         }
       ]
@@ -77,7 +46,7 @@
       "UpstreamPathTemplate": "/swagger/order/v1/swagger.json",
       "UpstreamHttpMethod": [ "Get", "Post", "Put", "Delete", "Patch" ],
       "DownstreamPathTemplate": "/swagger/v1/swagger.json",
-      "DownstreamScheme": "http",
+      "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
           "Host": "homehost",
@@ -90,10 +59,10 @@
       "UpstreamPathTemplate": "/swagger/pet-store-service/v1/swagger.json",
       "UpstreamHttpMethod": [ "Get", "Post", "Put", "Delete", "Patch" ],
       "DownstreamPathTemplate": "/swagger/v1/swagger.json",
-      "DownstreamScheme": "http",
+      "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
-          "Host": "homehost",
+          "Host": "api-petstore-staging.nodfeather.win",
           "Port": 8083
         }
       ]
