@@ -27,8 +27,7 @@ public static class ConfigureService
                     builder
                         .AllowAnyOrigin()
                         .AllowAnyHeader()
-                        .AllowAnyMethod()
-                        .AllowCredentials();
+                        .AllowAnyMethod();
                 });
         });
         services.AddDistributedMemoryCache();
