@@ -24,7 +24,8 @@ public static class ConfigureService
             options.AddPolicy("AllowAll",
                 builder =>
                 {
-                    builder.WithOrigins("https://petalaka-staging.nodfeather.win/")
+                    builder
+                        .AllowAnyOrigin()
                         .AllowAnyHeader()
                         .AllowAnyMethod()
                         .AllowCredentials();
