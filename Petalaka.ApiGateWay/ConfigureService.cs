@@ -24,9 +24,10 @@ public static class ConfigureService
             options.AddPolicy("AllowAll",
                 builder =>
                 {
-                    builder.AllowAnyHeader()
-                    .AllowAnyMethod()
-                    .AllowAnyOrigin();
+                    builder.WithOrigins("https://petalaka-staging.nodfeather.win/")
+                        .AllowAnyHeader()
+                        .AllowAnyMethod()
+                        .AllowCredentials();
                 });
         });
         services.AddDistributedMemoryCache();
