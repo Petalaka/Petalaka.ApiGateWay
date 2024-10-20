@@ -32,6 +32,7 @@ app.UseSwaggerUI(c =>
     c.SwaggerEndpoint("/swagger/order/v1/swagger.json", "Order Service");
     c.SwaggerEndpoint("/swagger/account-service/v1/swagger.json", "Account Service");
     c.SwaggerEndpoint("/swagger/pet-store-service/v1/swagger.json", "PetStore Service");
+    c.SwaggerEndpoint("/swagger/payment-service/v1/swagger.json", "Payment Service");
 });
 app.UseAuthentication();
 app.UseAuthorization();
