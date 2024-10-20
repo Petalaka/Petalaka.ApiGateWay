@@ -28,6 +28,19 @@
         }
       ]
     },
+    
+    {
+      "UpstreamPathTemplate": "/api/payment-service/{everything}",
+      "UpstreamHttpMethod": [ "Get", "Post", "Put", "Delete", "Patch" ],
+      "DownstreamPathTemplate": "/api/payment-service/{everything}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "homehost",
+          "Port": 8084
+        }
+      ]
+    },
 
     //Register downstream swagger ui
     {
@@ -67,7 +80,19 @@
           "Port": 8083
         }
       ]
+    },
+    
+    {
+      "UpstreamPathTemplate": "/swagger/payment-service/v1/swagger.json",
+      "UpstreamHttpMethod": [ "Get", "Post", "Put", "Delete", "Patch" ],
+      "DownstreamPathTemplate": "/swagger/v1/swagger.json",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "homehost",
+          "Port": 8084
+        }
+      ]
     }
-
   ]
 }
