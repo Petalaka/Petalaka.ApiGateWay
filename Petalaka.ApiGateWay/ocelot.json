@@ -23,7 +23,7 @@
       "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
-          "Host": "api-petstore-staging.nodfeather.win",
+          "Host": "api-petstore.nodfeather.win",
           "Port": 443
         }
       ]
@@ -35,7 +35,7 @@
       "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
-          "Host": "api-payment-staging.nodfeather.win",
+          "Host": "api-payment.nodfeather.win",
           "Port": 443
         }
       ]
@@ -74,7 +74,7 @@
       "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
-          "Host": "api-petstore-staging.nodfeather.win",
+          "Host": "api-petstore.nodfeather.win",
           "Port": 443
         }
       ]
@@ -86,7 +86,7 @@
       "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
-          "Host": "api-payment-staging.nodfeather.win",
+          "Host": "api-payment.nodfeather.win",
           "Port": 443
         }
       ]
