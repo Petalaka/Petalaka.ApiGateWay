@@ -11,7 +11,7 @@
       "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
-          "Host": "api-account-staging.nodfeather.win",
+          "Host": "api-account.nodfeather.win",
           "Port": 443
         }
       ]
@@ -48,21 +48,8 @@
       "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
-          "Host": "api-account-staging.nodfeather.win",
+          "Host": "api-account.nodfeather.win",
           "Port": 443
-        }
-      ]
-    },
-
-    {
-      "UpstreamPathTemplate": "/swagger/order/v1/swagger.json",
-      "UpstreamHttpMethod": [ "Get", "Post", "Put", "Delete", "Patch" ],
-      "DownstreamPathTemplate": "/swagger/v1/swagger.json",
-      "DownstreamScheme": "https",
-      "DownstreamHostAndPorts": [
-        {
-          "Host": "homehost",
-          "Port": 8081
         }
       ]
     },
