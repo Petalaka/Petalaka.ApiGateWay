@@ -23,7 +23,7 @@
       "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
-          "Host": "api-petstore.nodfeather.win",
+          "Host": "api-petstore-staging.nodfeather.win",
           "Port": 443
         }
       ]
@@ -35,7 +35,7 @@
       "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
-          "Host": "api-payment.nodfeather.win",
+          "Host": "api-payment-staging.nodfeather.win",
           "Port": 443
         }
       ]
@@ -55,26 +55,13 @@
     },
 
     {
-      "UpstreamPathTemplate": "/swagger/order/v1/swagger.json",
-      "UpstreamHttpMethod": [ "Get", "Post", "Put", "Delete", "Patch" ],
-      "DownstreamPathTemplate": "/swagger/v1/swagger.json",
-      "DownstreamScheme": "https",
-      "DownstreamHostAndPorts": [
-        {
-          "Host": "homehost",
-          "Port": 8081
-        }
-      ]
-    },
-
-    {
       "UpstreamPathTemplate": "/swagger/pet-store-service/v1/swagger.json",
       "UpstreamHttpMethod": [ "Get", "Post", "Put", "Delete", "Patch" ],
       "DownstreamPathTemplate": "/swagger/v1/swagger.json",
       "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
-          "Host": "api-petstore.nodfeather.win",
+          "Host": "api-petstore-staging.nodfeather.win",
           "Port": 443
         }
       ]
@@ -86,7 +73,7 @@
       "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
-          "Host": "api-payment.nodfeather.win",
+          "Host": "api-payment-staging.nodfeather.win",
           "Port": 443
         }
       ]
