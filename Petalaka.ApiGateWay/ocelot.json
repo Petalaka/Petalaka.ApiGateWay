@@ -1,6 +1,6 @@
 {
   "GlobalConfiguration": {
-    "BaseUrl": "http://ocelot-gateway:80"
+    "BaseUrl": "https://ocelot-gateway:80"
   },
   "Routes": [
     {
@@ -8,7 +8,8 @@
       "UpstreamPathTemplate": "/api/account-service/{everything}",
       "UpstreamHttpMethod": [ "Get", "Post", "Put", "Delete", "Patch" ],
       "DownstreamPathTemplate": "/api/account-service/{everything}",
-      "DownstreamScheme": "http",
+      "DangerousAcceptAnyServerCertificateValidator": true,
+      "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
           "Host": "homehost",
@@ -19,8 +20,9 @@
     {
       "UpstreamPathTemplate": "/api/pet-store-service/{everything}",
       "UpstreamHttpMethod": [ "Get", "Post", "Put", "Delete", "Patch" ],
+      "DangerousAcceptAnyServerCertificateValidator": true,
       "DownstreamPathTemplate": "/api/pet-store-service/{everything}",
-      "DownstreamScheme": "http",
+      "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
           "Host": "homehost",
@@ -28,12 +30,13 @@
         }
       ]
     },
-    
+
     {
       "UpstreamPathTemplate": "/api/payment-service/{everything}",
       "UpstreamHttpMethod": [ "Get", "Post", "Put", "Delete", "Patch" ],
+      "DangerousAcceptAnyServerCertificateValidator": true,
       "DownstreamPathTemplate": "/api/payment-service/{everything}",
-      "DownstreamScheme": "http",
+      "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
           "Host": "homehost",
@@ -46,8 +49,9 @@
     {
       "UpstreamPathTemplate": "/swagger/account-service/v1/swagger.json",
       "UpstreamHttpMethod": [ "Get", "Post", "Put", "Delete", "Patch" ],
+      "DangerousAcceptAnyServerCertificateValidator": true,
       "DownstreamPathTemplate": "/swagger/v1/swagger.json",
-      "DownstreamScheme": "http",
+      "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
           "Host": "homehost",
@@ -57,23 +61,11 @@
     },
 
     {
-      "UpstreamPathTemplate": "/swagger/order/v1/swagger.json",
-      "UpstreamHttpMethod": [ "Get", "Post", "Put", "Delete", "Patch" ],
-      "DownstreamPathTemplate": "/swagger/v1/swagger.json",
-      "DownstreamScheme": "http",
-      "DownstreamHostAndPorts": [
-        {
-          "Host": "homehost",
-          "Port": 8081
-        }
-      ]
-    },
-
-    {
       "UpstreamPathTemplate": "/swagger/pet-store-service/v1/swagger.json",
       "UpstreamHttpMethod": [ "Get", "Post", "Put", "Delete", "Patch" ],
+      "DangerousAcceptAnyServerCertificateValidator": true,
       "DownstreamPathTemplate": "/swagger/v1/swagger.json",
-      "DownstreamScheme": "http",
+      "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
           "Host": "homehost",
@@ -81,12 +73,13 @@
         }
       ]
     },
-    
+
     {
       "UpstreamPathTemplate": "/swagger/payment-service/v1/swagger.json",
       "UpstreamHttpMethod": [ "Get", "Post", "Put", "Delete", "Patch" ],
+      "DangerousAcceptAnyServerCertificateValidator": true,
       "DownstreamPathTemplate": "/swagger/v1/swagger.json",
-      "DownstreamScheme": "http",
+      "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
           "Host": "homehost",
